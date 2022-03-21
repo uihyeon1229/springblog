@@ -28,17 +28,25 @@ public class BlogController {
         return blogRepository.findAllByOrderByCreatedAtDesc();
     }
 
-    @PutMapping("/api/blogs/{id}")
-    public Long updateBlog(@PathVariable Long id, @RequestBody BlogRequestDto requestDto){
-        blogService.update(id,requestDto);
-        return id;
-    }
-
     @DeleteMapping("/api/blogs/{id}")
     public Long deleteBlog(@PathVariable Long id) {
         blogRepository.deleteById(id);
         return id;
     }
+
+    @GetMapping("/api/blogs/{id}")
+    public Blog Detail(@PathVariable Long id){
+        Blog blog = blogRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException()
+                );
+        return blog;
+    }
+
+//    @PutMapping("/api/blogs/{id}")
+//    public Long updateBlog(@PathVariable Long id, @RequestBody BlogRequestDto requestDto){
+//        return blogService.update(id, requestDto);
+//    }
+
 
 
 

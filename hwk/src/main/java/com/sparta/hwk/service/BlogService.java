@@ -20,6 +20,6 @@ public class BlogService {
                 () -> new IllegalArgumentException("게시글이 존재하지 않습니다.")
         );
         blog.update(requestDto);
-        return id;
+        return blog.getId();
     }
 }

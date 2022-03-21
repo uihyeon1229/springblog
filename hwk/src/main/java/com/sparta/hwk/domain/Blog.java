@@ -30,6 +30,7 @@ public class Blog extends Timestamped { // 생성,수정 시간을 자동으로 
     }
 
     public Blog(BlogRequestDto requestDto) {
+
         this.title = requestDto.getTitle();
         this.username = requestDto.getUsername();
         this.contents = requestDto.getContents();
