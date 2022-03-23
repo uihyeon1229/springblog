@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface BlogRepository extends JpaRepository<Blog, Long> {
     List<Blog> findAllByOrderByCreatedAtDesc();
-
 }

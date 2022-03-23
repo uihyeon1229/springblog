@@ -5,7 +5,9 @@ import com.sparta.hwk.domain.BlogRepository;
 import com.sparta.hwk.domain.BlogRequestDto;
 import com.sparta.hwk.service.BlogService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -35,10 +37,10 @@ public class BlogController {
     }
 
     @GetMapping("/api/blogs/{id}")
-    public Blog Detail(@PathVariable Long id){
+    public Blog Detail(@PathVariable Long id) {
         Blog blog = blogRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException()
-                );
+        );
         return blog;
     }
 
@@ -47,8 +49,18 @@ public class BlogController {
 //        return blogService.update(id, requestDto);
 //    }
 
+    @RequestMapping("/api/blogs/detail")
+    public ModelAndView detail(@RequestParam("id") Long id) throws Exception{
+        ModelAndView modelAndView = new ModelAndView("/detail.html");
+        return modelAndView;
+    }
 
-
-
+//    @GetMapping("/api/blogs/detail")
+//    public ModelAndView MoveDetail(@RequestParam Long id) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("/detail.html");
+//        modelAndView.addObject("id",id);
+//        return modelAndView;
+//}
 
 }
