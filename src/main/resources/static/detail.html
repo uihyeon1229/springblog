@@ -264,20 +264,20 @@
 
         // 수정 버튼을 눌렀을 때, 기존 작성 내용을 textarea 에 전달합니다.
         // 숨길 버튼을 숨기고, 나타낼 버튼을 나타냅니다.
-        function editPost(id) {
-            showEdits(id);
-            let contents = $(`#${id}-contents`).text().trim();
-            $(`#${id}-textarea`).val(contents);
-        }
-
-        function showEdits(id) {
-            $(`#${id}-editarea`).show();
-            $(`#${id}-submit`).show();
-            $(`#${id}-delete`).show();
-
-            $(`#${id}-contents`).hide();
-            $(`#${id}-edit`).hide();
-        }
+        // function editPost(id) {
+        //     showEdits(id);
+        //     let contents = $(`#${id}-contents`).text().trim();
+        //     $(`#${id}-textarea`).val(contents);
+        // }
+        //
+        // function showEdits(id) {
+        //     $(`#${id}-editarea`).show();
+        //     $(`#${id}-submit`).show();
+        //     $(`#${id}-delete`).show();
+        //
+        //     $(`#${id}-contents`).hide();
+        //     $(`#${id}-edit`).hide();
+        // }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 여기서부터 코드를 작성해주시면 됩니다.
 
@@ -310,26 +310,26 @@
         let id = getParameter("id");
 
         // 메모를 불러와서 보여줍니다.
-        function getMessages() {
-            // 1. 기존 메모 내용을 지웁니다.
-            $('#cards-box').empty();
-            // 2. 메모 목록을 불러와서 HTML로 붙입니다.
-            $.ajax({
-                type: 'GET',
-                url: `/api/blogs/$("id")`,
-                success: function (response) {
-                    for (let i = 0; i < response.length; i++) {
-                        let blog = response[i];
-                        let id = blog.id;
-                        let title = blog.title;
-                        let username = blog.username;
-                        let contents = blog.contents;
-                        let createdAt = blog.createdAt;
-                        addHTML(id, title, username, contents, createdAt);
-                    }
-                }
-            })
-        }
+        // function getMessages() {
+        //     // 1. 기존 메모 내용을 지웁니다.
+        //     $('#cards-box').empty();
+        //     // 2. 메모 목록을 불러와서 HTML로 붙입니다.
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: `/api/blogs/$("id")`,
+        //         success: function (response) {
+        //             for (let i = 0; i < response.length; i++) {
+        //                 let blog = response[i];
+        //                 let id = blog.id;
+        //                 let title = blog.title;
+        //                 let username = blog.username;
+        //                 let contents = blog.contents;
+        //                 let createdAt = blog.createdAt;
+        //                 addHTML(id, title, username, contents, createdAt);
+        //             }
+        //         }
+        //     })
+        // }
 
 
 
@@ -399,52 +399,52 @@
         // }
 
         // 메모를 수정합니다.
-        function submitEdit(id) {
-            // 1. 작성 대상 메모의 username과 contents 를 확인합니다.
-            let username = $(`#${id}-username`).text().trim();
-            let contents = $(`#${id}-textarea`).val().trim();
+        // function submitEdit(id) {
+        //     // 1. 작성 대상 메모의 username과 contents 를 확인합니다.
+        //     let username = $(`#${id}-username`).text().trim();
+        //     let contents = $(`#${id}-textarea`).val().trim();
+        //
+        //     // 2. 작성한 메모가 올바른지 isValidContents 함수를 통해 확인합니다.
+        //     if (isValidContents(contents) == false) {
+        //         return;
+        //     }
+        //
+        //     // 3. 전달할 data JSON으로 만듭니다.
+        //     let data = {'contents': contents};
+        //
+        //     // 4. PUT /api/memos/{id} 에 data를 전달합니다.
+        //     $.ajax({
+        //         type: "PUT",
+        //         url: `/api/blogs/${id}`,
+        //         contentType: "application/json",
+        //         data: JSON.stringify(data),
+        //         success: function (response) {
+        //             alert('메시지 변경에 성공하였습니다.');
+        //             window.location.reload();
+        //         }
+        //     });
+        // }
+        //
+        // // 메모를 삭제합니다.
+        // function deleteOne(id) {
+        //     // 1. DELETE /api/memos/{id} 에 요청해서 메모를 삭제합니다.
+        //     $.ajax({
+        //         type: "DELETE",
+        //         url: `/api/blogs/${id}`,
+        //         success: function (response) {
+        //             alert('메시지 삭제에 성공하였습니다.');
+        //             window.location.reload();
+        //         }
+        //     })
+        // }
 
-            // 2. 작성한 메모가 올바른지 isValidContents 함수를 통해 확인합니다.
-            if (isValidContents(contents) == false) {
-                return;
-            }
-
-            // 3. 전달할 data JSON으로 만듭니다.
-            let data = {'contents': contents};
-
-            // 4. PUT /api/memos/{id} 에 data를 전달합니다.
-            $.ajax({
-                type: "PUT",
-                url: `/api/blogs/${id}`,
-                contentType: "application/json",
-                data: JSON.stringify(data),
-                success: function (response) {
-                    alert('메시지 변경에 성공하였습니다.');
-                    window.location.reload();
-                }
-            });
-        }
-
-        // 메모를 삭제합니다.
-        function deleteOne(id) {
-            // 1. DELETE /api/memos/{id} 에 요청해서 메모를 삭제합니다.
-            $.ajax({
-                type: "DELETE",
-                url: `/api/blogs/${id}`,
-                success: function (response) {
-                    alert('메시지 삭제에 성공하였습니다.');
-                    window.location.reload();
-                }
-            })
-        }
-
-        function open_box() {
-            $('#area-write').show();
-        }
-
-        function close_box() {
-            $('#area-write').hide();
-        }
+        // function open_box() {
+        //     $('#area-write').show();
+        // }
+        //
+        // function close_box() {
+        //     $('#area-write').hide();
+        // }
 
     </script>
 </head>
