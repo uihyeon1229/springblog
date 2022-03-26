@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -39,7 +40,7 @@ public class BlogController {
     @GetMapping("/api/blogs/{id}")
     public Blog Detail(@PathVariable Long id) {
         Blog blog = blogRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException()
+                () -> new IllegalArgumentException("null")
         );
         return blog;
     }
@@ -50,7 +51,7 @@ public class BlogController {
 //    }
 
     @RequestMapping("/api/blogs/detail")
-    public ModelAndView detail(@RequestParam("id") Long id) throws Exception{
+    public ModelAndView detail(@RequestParam("id") Long id) throws Exception {
         ModelAndView modelAndView = new ModelAndView("/detail.html");
         return modelAndView;
     }
@@ -62,5 +63,4 @@ public class BlogController {
 //        modelAndView.addObject("id",id);
 //        return modelAndView;
 //}
-
 }

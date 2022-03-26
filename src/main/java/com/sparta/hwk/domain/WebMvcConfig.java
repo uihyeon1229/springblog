@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -20,4 +21,5 @@ public class WebMvcConfig {
         copy.getFactory().setCharacterEscapes(new com.sparta.hwk.domain.HTMLCharacterEscapes());
         return new MappingJackson2HttpMessageConverter(copy);
     }
+
 }

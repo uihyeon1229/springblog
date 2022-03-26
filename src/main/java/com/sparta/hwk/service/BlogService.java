@@ -21,5 +21,6 @@ public class BlogService {
         );
         blog.update(requestDto);
         return blog.getId();
+
     }
 }

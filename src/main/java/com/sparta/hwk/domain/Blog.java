@@ -22,6 +22,7 @@ public class Blog extends Timestamped { // 생성,수정 시간을 자동으로 
     @Column(nullable = false)
     private String contents;
 
+
     public Blog(String title, String username, String contents) {
         this.title = title;
         this.username = username;
