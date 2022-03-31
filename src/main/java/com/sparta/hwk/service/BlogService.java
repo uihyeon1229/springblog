@@ -1,8 +1,8 @@
 package com.sparta.hwk.service;
 
-import com.sparta.hwk.domain.Blog;
-import com.sparta.hwk.domain.BlogRepository;
-import com.sparta.hwk.domain.BlogRequestDto;
+import com.sparta.hwk.model.Blog;
+import com.sparta.hwk.repository.BlogRepository;
+import com.sparta.hwk.Dto.BlogRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

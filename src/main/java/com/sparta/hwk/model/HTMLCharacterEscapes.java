@@ -1,4 +1,4 @@
-package com.sparta.hwk.domain;
+package com.sparta.hwk.model;
 
 import com.fasterxml.jackson.core.SerializableString;
 import com.fasterxml.jackson.core.io.CharacterEscapes;

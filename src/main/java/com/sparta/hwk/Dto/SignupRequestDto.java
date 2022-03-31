@@ -1,4 +1,4 @@
-package com.sparta.hwk.domain;
+package com.sparta.hwk.Dto;
 
 import lombok.Getter;
 import lombok.Setter;

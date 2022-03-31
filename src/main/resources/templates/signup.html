@@ -25,10 +25,42 @@
             }
         }
 
+        // $('.pw-input-box').on("propertychange change keyup paste input",function(){
+        //
+        //     var pw = $('.pw-input-box').val();
+        //     var pwck = $('.pwck-input-box').val();
+        //
+        //     if(pw==pwck){
+        //         $('.passwordcheck1').css('display','block');
+        //         $('.passwordcheck2').css('display','none');
+        //         pwckorcheck = true;
+        //         }else{
+        //         $('.passwordcheck1').css('display','none');
+        //         $('.passwordcheck2').css('display','block');
+        //         pwckorcheck = flase;
+        //     }
+        //
+        //
+        // });
+
 
 
 
     </script>
+    <style>
+        /*.passwordcheck1 {*/
+        /*    color: green;*/
+        /*    font-size: 11px;*/
+        /*    display: none;*/
+        /*}*/
+        /*.passwordcheck2 {*/
+        /*    color: red;*/
+        /*    font-size: 11px;*/
+        /*    display: none;*/
+        /*}*/
+
+
+    </style>
 </head>
 <body>
 <div id="login-form">
@@ -45,6 +77,12 @@
         <input type="password" name="password" class="login-input-box">
         <br>
         <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}"></span>
+
+<!--        <div class="login-id-label">Password check</div>-->
+<!--        <input type="password" name="password" class="pwck-input-box">-->
+<!--        <span class="passwordcheck1">비밀번호가 일치합니다.</span>-->
+<!--        <span class="passwordcheck2">비밀번호가 일치하지 않습니다.</span>-->
+
 
         <div class="login-id-label">E-mail</div>
         <input type="text" name="email" placeholder="E-mail" class="login-input-box">

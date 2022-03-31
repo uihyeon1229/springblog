@@ -1,8 +1,10 @@
-package com.sparta.hwk.domain;
+package com.sparta.hwk.Dto;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class BlogRequestDto {
     private String title;
     private String username;

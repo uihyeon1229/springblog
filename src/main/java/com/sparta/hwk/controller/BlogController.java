@@ -1,16 +1,16 @@
 package com.sparta.hwk.controller;
 
-import com.sparta.hwk.domain.Blog;
-import com.sparta.hwk.domain.BlogRepository;
-import com.sparta.hwk.domain.BlogRequestDto;
+import com.sparta.hwk.model.Blog;
+import com.sparta.hwk.repository.BlogRepository;
+import com.sparta.hwk.Dto.BlogRequestDto;
+import com.sparta.hwk.security.UserDetailsImpl;
 import com.sparta.hwk.service.BlogService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -21,7 +21,8 @@ public class BlogController {
 
 
     @PostMapping("/api/blogs")
-    public Blog createBlog(@RequestBody BlogRequestDto requestDto) {
+    public Blog createBlog(@RequestBody BlogRequestDto requestDto, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        requestDto.setUsername(userDetails.getUsername());
         Blog blog = new Blog(requestDto);
         return blogRepository.save(blog);
     }
@@ -50,16 +51,16 @@ public class BlogController {
 //        return blogService.update(id, requestDto);
 //    }
 
-    @RequestMapping("/api/blogs/detail")
-    public ModelAndView detail(@RequestParam("id") Long id) throws Exception {
-        ModelAndView modelAndView = new ModelAndView("/detail.html");
-        return modelAndView;
-    }
+//    @RequestMapping("/api/blogs/detail")
+//    public ModelAndView detail(@RequestParam("id") Long id) throws Exception {
+//        ModelAndView modelAndView = new ModelAndView("detail.html");
+//        return modelAndView;
+//    }
 
 //    @GetMapping("/api/blogs/detail")
 //    public ModelAndView MoveDetail(@RequestParam Long id) {
 //        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("/detail.html");
+//        modelAndView.setViewName("detail");
 //        modelAndView.addObject("id",id);
 //        return modelAndView;
 //}

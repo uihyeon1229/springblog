@@ -1,8 +1,7 @@
 package com.sparta.hwk.security;
 
-import com.sparta.hwk.domain.UserRepository;
-import com.sparta.hwk.domain.User;
-import com.sparta.hwk.domain.UserRepository;
+import com.sparta.hwk.repository.UserRepository;
+import com.sparta.hwk.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
 package com.sparta.hwk.security;
 
-import com.sparta.hwk.domain.User;
+import com.sparta.hwk.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

@@ -1,10 +1,9 @@
 package com.sparta.hwk.service;
 
-import com.sparta.hwk.domain.SignupRequestDto;
-import com.sparta.hwk.domain.User;
-import com.sparta.hwk.domain.UserRepository;
-import com.sparta.hwk.domain.UserRoleEnum;
-
+import com.sparta.hwk.Dto.SignupRequestDto;
+import com.sparta.hwk.model.User;
+import com.sparta.hwk.repository.UserRepository;
+import com.sparta.hwk.model.UserRoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -64,4 +63,5 @@ public class UserService {
         }
         return validatorResult;
     }
+
 }
